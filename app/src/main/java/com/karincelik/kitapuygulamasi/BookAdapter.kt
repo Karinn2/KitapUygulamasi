@@ -8,11 +8,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class BookAdapter(
-    private var bookList: List<Book>, // Filtrelenmiş kitap listesi
+    private var bookList: List<Book>, //  kitap listesi
     private val onBookClick: (Book) -> Unit
 ) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
 
-    private var filteredBookList = bookList // Filtrelenmiş kitap listesini tutan değişken
+    private var filteredBookList = bookList // kitap listesini tutan değişken
 
     inner class BookViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val bookImage: ImageView = itemView.findViewById(R.id.book_image)
@@ -41,7 +41,7 @@ class BookAdapter(
         holder.bind(filteredBookList[position]) // Filtrelenmiş listeyi bağla
     }
 
-    override fun getItemCount(): Int = filteredBookList.size // Filtrelenmiş kitap sayısını döndür
+    override fun getItemCount(): Int = filteredBookList.size // Filtrelenmiş kitap sayısını döndürme
 
     // Filtreleme metodunu ekle
     fun filter(query: String?) {
@@ -53,6 +53,6 @@ class BookAdapter(
                         book.author.contains(query, ignoreCase = true) // Yazar adına göre filtrele
             }
         }
-        notifyDataSetChanged() // Adapter'ı güncelle
+        notifyDataSetChanged() // Adapter'ı güncelliyor
     }
 }

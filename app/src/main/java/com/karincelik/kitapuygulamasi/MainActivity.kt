@@ -13,13 +13,13 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var bookAdapter: BookAdapter
-    private lateinit var bookList: List<Book> // Kitap listesini burada tanımlıyoruz
+    private lateinit var bookList: List<Book> // Kitap listesini burada tanımladım
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Kitap listesi örneği
+        // Kitap listesi örnek
         bookList = listOf(
             Book(R.drawable.ic_launcher_background, "Kitap 1", "Yazar 1", "Kitap açıklaması 1"),
             Book(R.drawable.ic_launcher_background, "Kitap 2", "Yazar 2", "Kitap açıklaması 2"),
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(this) // Dikey listeleme düzeni
 
-        // BookAdapter'i oluştur ve tıklama olayını ayarla
+        // BookAdapter'i oluştur ve tıklama olayı
         bookAdapter = BookAdapter(bookList) { selectedBook ->
             // Kitaba tıklandığında detay sayfasına git
             val intent = Intent(this, BookDetailActivity::class.java).apply {
@@ -40,10 +40,10 @@ class MainActivity : AppCompatActivity() {
                 putExtra("BOOK_IMAGE", selectedBook.imageResId)
                 putExtra("BOOK_DESCRIPTION", selectedBook.description)
             }
-            startActivity(intent) // Detay sayfasına geçiş yap
+            startActivity(intent) // Detay sayfasına geçiş yapıyor
         }
 
-        // Adapter'i RecyclerView'a bağla
+        // Adapter'i RecyclerView'a bağlandı
         recyclerView.adapter = bookAdapter
     }
 
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.search_menu2, menu) // Menüyü inflate et
 
-        // Arama butonunu bul ve SearchView nesnesini ayarla
+        // Arama butonunu bul ve SearchView nesnesini ayarlaa
         val searchItem = menu?.findItem(R.id.action_search)
         val searchView = searchItem?.actionView as SearchView
 
